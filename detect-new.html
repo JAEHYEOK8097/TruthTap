@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            max-width: 1200px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .left, .right {
+            flex: 1;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="date"], input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .gender-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .dropdown-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            font-size: 1em;
+            margin-top: 10px;
+            position: relative;
+        }
+        .dropdown-button::after {
+            content: '▼';
+            position: absolute;
+            right: 15px;
+        }
+        .dropdown-content {
+            display: none;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            background-color: white;
+        }
+        .checkbox-group label {
+            margin-right: 15px;
+        }
+        .checkbox-group input {
+            margin-right: 5px;
+        }
+        .show {
+            display: block;
+        }
+        .signup-button {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        .signup-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h2>회원가입</h2>
+            <div class="form-group">
+                <label for="name">이름</label>
+                <input type="text" id="name" placeholder="이름을 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for="birthdate">생년월일</label>
+                <input type="date" id="birthdate">
+            </div>
+            <div class="form-group">
+                <label>성별</label>
+                <div class="gender-group">
+                    <input type="radio" id="male" name="gender" value="Male">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="Female">
+                    <label for="female">Female</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="username">아이디</label>
+                <input type="text" id="username" placeholder="아이디를 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for="password">비밀번호</label>
+                <input type="password" id="password" placeholder="비밀번호를 입력하세요">
+            </div>
+        </div>
+        <div class="right">
+            <h2>관심분야 선택</h2>
+            <button class="dropdown-button" onclick="toggleDropdown()">항목을 선택하세요</button>
+            <div class="dropdown-content" id="dropdownContent">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="politics" value="Politics">
+                    <label for="politics">정치</label><br>
+                    <input type="checkbox" id="economy" value="Economy">
+                    <label for="economy">경제</label><br>
+                    <input type="checkbox" id="culture" value="Culture">
+                    <label for="culture">생활/문화</label><br>
+                    <input type="checkbox" id="world" value="World">
+                    <label for="world">세계</label><br>
+                    <input type="checkbox" id="society" value="Society">
+                    <label for="society">사회</label><br>
+                    <input type="checkbox" id="it" value="IT">
+                    <label for="it">IT/과학</label><br>
+                    <input type="checkbox" id="sports" value="Sports">
+                    <label for="sports">스포츠</label><br>
+                    <input type="checkbox" id="entertainment" value="Entertainment">
+                    <label for="entertainment">연예</label><br>
+                    <input type="checkbox" id="environment" value="Environment">
+                    <label for="environment">환경</label>
+                </div>
+            </div>
+        </div>
+        <!-- 수정된 부분: onclick 추가 -->
+        <button class="signup-button" onclick="redirectToLogin()">회원가입하기</button>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            const dropdownContent = document.getElementById("dropdownContent");
+            dropdownContent.classList.toggle("show");
+        }
+
+        // 수정된 부분: 로그인 페이지로 이동하는 함수 추가
+        function redirectToLogin() {
+            // 로그인 페이지 URL
+            const loginPageURL = "detect-login.html"; // 로그인 페이지 파일 이름
+            window.location.href = loginPageURL;
+        }
+    </script>
+</body>
+</html>
